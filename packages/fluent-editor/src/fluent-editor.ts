@@ -20,10 +20,14 @@ import Video from './video' // 视频
 import { FormatPainter } from './format-painter'
 import { IEditorConfig } from './config/types'
 import { LineHeightStyle, SizeStyle, FontStyle, TextIndentStyle } from './attributors'
-import { TableUp } from './table-up'
+import { TableUp, updateTableConstants } from './table-up'
 
+updateTableConstants({
+  blotName: {
+    tableWrapper: 'better-table',
+  },
+})
 TableUp.moduleName = 'better-table'
-TableUp.toolName = 'better-table'
 
 class FluentEditor extends Quill {
   constructor(container: HTMLElement | string, options: IEditorConfig = {}) {
@@ -69,6 +73,7 @@ const registerModules = function () {
         full: false,
         resizerSetOuter: true,
         selection: {
+          selectColor: '#5170ff',
           tableMenu: {
             tipText: true,
             contextmenu: true,
