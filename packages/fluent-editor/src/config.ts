@@ -77,7 +77,7 @@ export const ICONS_CONFIG: { [key: string]: any } = {
 
   'image': IMAGE_ICON,
   'file': FILE_ICON,
-  'better-table': TABLE_ICON,
+  'table': TABLE_ICON,
   'link': LINK_ICON,
   'global-link': GLOBAL_LINK_ICON,
   'fullscreen': FULLSCREEN_ICON,
@@ -87,46 +87,29 @@ export const ICONS_CONFIG: { [key: string]: any } = {
   'format-painter': FORMAT_PAINTER_ICON,
 }
 
-export const TABLE_RIGHT_MENU_CONFIG = {
-  copyCells: {
-    text: LANG_CONF['copy-cells'],
-  },
-  copyTable: {
-    text: LANG_CONF['copy-table'],
-  },
-  cutCells: {
-    text: LANG_CONF['cut-cells'],
-  },
-  emptyCells: {
-    text: LANG_CONF['empty-cells'],
-  },
-  insertRowUp: {
-    text: LANG_CONF['insert-row-up'],
-  },
-  insertRowDown: {
-    text: LANG_CONF['insert-row-down'],
-  },
-  insertColumnLeft: {
-    text: LANG_CONF['insert-column-left'],
-  },
-  insertColumnRight: {
-    text: LANG_CONF['insert-column-right'],
-  },
-  mergeCells: {
-    text: LANG_CONF['merge-cells'],
-  },
-  unmergeCells: {
-    text: LANG_CONF['unmerge-cells'],
-  },
-  deleteRow: {
-    text: LANG_CONF['delete-row'],
-  },
-  deleteColumn: {
-    text: LANG_CONF['delete-column'],
-  },
-  deleteTable: {
-    text: LANG_CONF['delete-table'],
-  },
+export const TABLE_RIGHT_MENU_TEXT_CONFIG = {
+  InsertTop: LANG_CONF['insert-row-up'],
+  InsertRight: LANG_CONF['insert-column-right'],
+  InsertBottom: LANG_CONF['insert-row-down'],
+  InsertLeft: LANG_CONF['insert-column-left'],
+  MergeCell: LANG_CONF['merge-cells'],
+  SplitCell: LANG_CONF['unmerge-cells'],
+  DeleteRow: LANG_CONF['delete-row'],
+  DeleteColumn: LANG_CONF['delete-column'],
+  DeleteTable: LANG_CONF['delete-table'],
+  BackgroundColor: LANG_CONF['set-background-color'],
+}
+export const TABLE_MENUE_TEXT_CONFIG = {
+  custom: LANG_CONF['custom'],
+  clear: LANG_CONF['clear'],
+}
+export const TABLE_TEXT_CONFIG = {
+  customBtn: LANG_CONF['custom'],
+  confirmText: LANG_CONF['confirm'],
+  cancelText: LANG_CONF['cancel'],
+  rowText: LANG_CONF['row-number'],
+  colText: LANG_CONF['column-number'],
+  notPositiveNumberError: LANG_CONF['input-positive-integer'],
 }
 
 // 触发上传

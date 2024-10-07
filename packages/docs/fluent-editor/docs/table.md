@@ -2,7 +2,7 @@
 
 通过配置 `better-table` 模块，可以开启表格功能，同时需要配置工具栏按钮 `better-table`。
 
-:::demo src=demos/table.vue
+:::demo src=demos/table-up.vue
 :::
 
 `better-table` 模块配置项：
