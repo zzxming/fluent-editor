@@ -4,15 +4,16 @@ import { onMounted, ref } from 'vue'
 // 代码块高亮
 import hljs from 'highlight.js'
 import 'highlight.js/styles/atom-one-dark.css'
-window.hljs = hljs
 
 // 插入公式
 import katex from 'katex'
 import 'katex/dist/katex.min.css'
-window.katex = katex
 
 // 截屏
 import Html2Canvas from 'html2canvas'
+
+window.hljs = hljs
+window.katex = katex
 window.Html2Canvas = Html2Canvas
 
 let editor
@@ -47,7 +48,7 @@ const TOOLBAR_CONFIG = [
 ]
 
 const articleRef = ref<HTMLElement>()
-const updateHTML = (html: string) => {
+function updateHTML(html: string) {
   if (articleRef.value) {
     articleRef.value.innerHTML = html
   }
@@ -68,7 +69,7 @@ onMounted(() => {
         'mention': {
           itemKey: 'cn',
           searchKey,
-          search: function (term) {
+          search(term) {
             return mentionList.filter((item) => {
               return item[searchKey] && String(item[searchKey]).includes(term)
             })
