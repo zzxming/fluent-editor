@@ -16,18 +16,11 @@ import { Screenshot } from './screenshot'// 截图
 import SoftBreak from './soft-break' // 软回车
 import Strike from './strike' // 删除线
 import CustomSyntax from './syntax' // 代码块高亮
-import { TableUp, updateTableConstants } from './table-up'
+import TableUp from './table-up'
 import Toolbar from './toolbar' // 工具栏
 import Video from './video' // 视频
 // import GlobalLink from './global-link' // 全局链接
 // import QuickMenu from './quick-menu' // 快捷菜单
-
-updateTableConstants({
-  blotName: {
-    tableWrapper: 'better-table',
-  },
-})
-TableUp.moduleName = 'better-table'
 
 class FluentEditor extends Quill {
   constructor(container: HTMLElement | string, options: IEditorConfig = {}) {
