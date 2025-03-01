@@ -1,15 +1,16 @@
 import Quill, { Range } from 'quill'
 import Emitter from 'quill/core/emitter'
 import { BaseTooltip } from 'quill/themes/base'
-import { CHANGE_LANGUAGE_EVENT, LANG_CONF } from '../../../config'
+import { CHANGE_LANGUAGE_EVENT } from '../../../config'
 import { hadProtocol, isNullOrUndefined } from '../../../config/editor.utils'
+import { EN_US } from '../../../config/i18n/en-us'
 import { debounce } from '../../../utils/debounce'
 import LinkBlot from '../formats/link'
 
 // @dynamic
 export default class Tooltip extends BaseTooltip {
   static TEMPLATE: string = [
-    `<input type="text" data-formula="e=mc^2" data-link="${LANG_CONF['en-US'].linkplaceholder}" data-video="Embed URL" style="width: 225px;">`,
+    `<input type="text" data-formula="e=mc^2" data-link="${EN_US.linkplaceholder}" data-video="Embed URL" style="width: 225px;">`,
     '<span class="ql-split"></span>',
     '<a class="ql-preview"><i class="icon-share"></i></a>',
     '<a class="ql-remove"><i class="icon-delete"></i></a>',

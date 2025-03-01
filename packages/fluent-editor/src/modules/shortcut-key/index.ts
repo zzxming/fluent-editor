@@ -1,10 +1,10 @@
 import type { Range } from 'quill'
-import type { QuillShortcutKeyInputOptions, QuillShortcutKeyOptions } from 'quill-shortcut-key'
+import type { Menu, MenuItemsGroup, QuillShortcutKeyInputOptions, QuillShortcutKeyOptions } from 'quill-shortcut-key'
 import type { Context } from 'quill/modules/keyboard'
 import type TypeToolbar from 'quill/modules/toolbar'
 import type FluentEditor from '../../fluent-editor'
 import Quill from 'quill'
-import QuillShortcutKey, { defaultShortKey } from 'quill-shortcut-key'
+import QuillShortcutKey, { defaultShortKey, searchAndSort } from 'quill-shortcut-key'
 import { CHANGE_LANGUAGE_EVENT } from '../../config'
 
 interface ShortCutKeyCustomOptions { isMenuItemsAdd: boolean }
@@ -19,6 +19,7 @@ export class ShortCutKey extends QuillShortcutKey {
     this.quill.emitter.on(CHANGE_LANGUAGE_EVENT, () => {
       this.destroyMenuList()
       this.options = this.resolveOptions(options)
+      this.menuSorter = searchAndSort.bind(this, this.getAllMenuItems()) as (searchText: string) => Menu
       this.placeholderTip.remove()
       this.placeholderTip = this.initPlaceholder()
       this.placeholderUpdate()
@@ -27,7 +28,7 @@ export class ShortCutKey extends QuillShortcutKey {
 
   resolveOptions(options: Partial<ShortCutKeyInputOptions>) {
     const defaultMenuItems = this.defaultMenuList()
-    const value = Object.assign({
+    const value: ShortCutKeyOptions = Object.assign({
       placeholder: this.quill.getLangText('input-recall-menu-placeholder'),
       menuItems: defaultMenuItems,
       isMenuItemsAdd: false,
@@ -37,6 +38,21 @@ export class ShortCutKey extends QuillShortcutKey {
       value.menuItems = [...defaultMenuItems, ...value.menuItems]
     }
 
+    const deepCopyMenuItems = (items: Menu): Menu => {
+      return items.map((item) => {
+        const value = {
+          ...item,
+        }
+        if (item.title) {
+          value.title = this.quill.getLangText(item.title)
+        }
+        if (item.type === 'group') {
+          (value as MenuItemsGroup).children = deepCopyMenuItems(item.children)
+        }
+        return value
+      })
+    }
+    value.menuItems = deepCopyMenuItems(value.menuItems)
     return value
   }
 

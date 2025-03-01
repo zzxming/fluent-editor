@@ -1,4 +1,6 @@
 import { FontStyle, LineHeightStyle, SizeStyle, TextIndentStyle } from './attributors'
+import { EN_US } from './config/i18n/en-us'
+import { ZH_CN } from './config/i18n/zh-cn'
 import FluentEditor from './core/fluent-editor'
 import SoftBreak from './formats/soft-break' // 软回车
 import Strike from './formats/strike' // 删除线
@@ -22,6 +24,13 @@ import { ColorPicker, Picker } from './modules/toolbar/better-picker'
 import SnowTheme from './themes/snow'
 import Icons from './ui/icons'
 
+I18N.register(
+  {
+    'en-US': EN_US,
+    'zh-CN': ZH_CN,
+  },
+  true,
+)
 FluentEditor.register(
   {
     'attributors/style/font': FontStyle,

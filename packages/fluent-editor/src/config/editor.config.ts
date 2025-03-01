@@ -1,12 +1,6 @@
-import { EN_US } from './i18n/en-us'
-import { ZH_CN } from './i18n/zh-cn'
-
 // Delta数据行太多超出该限制时，加载会比较慢，需要提示用户
 export const BIG_DELTA_LIMIT = 2000
-export const LANG_CONF = {
-  'en-US': EN_US,
-  'zh-CN': ZH_CN,
-}
+
 export const CHANGE_LANGUAGE_EVENT = 'change-language'
 export const defaultLanguage = 'en-US'
 

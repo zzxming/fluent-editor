@@ -1,8 +1,8 @@
 import type { ExpandedQuillOptions } from 'quill'
 import type { IEditorConfig } from '../config/types'
-import type I18N from '../modules/i18n'
 import Quill from 'quill'
-import { defaultLanguage, LANG_CONF } from '../config'
+import { defaultLanguage } from '../config'
+import I18N from '../modules/i18n'
 
 class FluentEditor extends Quill {
   isFullscreen: boolean = false
@@ -22,9 +22,7 @@ class FluentEditor extends Quill {
   }
 
   getLangText(name: string) {
-    const i18nModule = this.getModule('i18n') as I18N
-    if (!i18nModule) return LANG_CONF[defaultLanguage][name]
-    return i18nModule.options.langText[name]
+    return I18N.parserText(name, this.lang)
   }
 }
 
