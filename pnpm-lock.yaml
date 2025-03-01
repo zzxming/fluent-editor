@@ -48,8 +48,8 @@ importers:
         specifier: ^0.0.10
         version: 0.0.10
       quill-table-up:
-        specifier: ^2.1.4
-        version: 2.1.4(quill@2.0.3)
+        specifier: ^2.1.5
+        version: 2.1.5(quill@2.0.3)
       quill-toolbar-tip:
         specifier: ^0.0.13
         version: 0.0.13(quill@2.0.3)
@@ -3976,10 +3976,10 @@ packages:
     peerDependencies:
       quill: ^2.0.0
 
-  quill-table-up@2.1.4:
-    resolution: {integrity: sha512-kplD+fMdS0nmu0qp8/ZWU7BLo5d0ZyGqw4AynMmxdr/NByA2hoKrbOUMnyOoi81/X6TbtOwuXW6M8MoW9yjNWQ==}
+  quill-table-up@2.1.5:
+    resolution: {integrity: sha512-4k9oTX4bFU+y5NO9Fun/GfwGnn5cfdR1GxgJaiUtU1QBZoilCSk6oBZ3g9GbdpjitOKkdOnlovFteANecz5dcg==}
     peerDependencies:
-      quill: ^2.0.0
+      quill: ^2.0.3
 
   quill-toolbar-tip@0.0.13:
     resolution: {integrity: sha512-E2fK1C2xUiBulIRabgYBS861gD1M+NSU6ngijchMgdQlYY2y5Bml2mOaDnGwxRmMu9SVx5gu6DlXDe0Fi3nPwg==}
@@ -9377,7 +9377,7 @@ snapshots:
     dependencies:
       quill: 2.0.3
 
-  quill-table-up@2.1.4(quill@2.0.3):
+  quill-table-up@2.1.5(quill@2.0.3):
     dependencies:
       '@floating-ui/dom': 1.6.13
       quill: 2.0.3
