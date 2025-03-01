@@ -30,6 +30,7 @@
     "@vitepress-code-preview/container": "^1.0.8",
     "@vitepress-code-preview/plugin": "^1.0.4",
     "less": "^4.2.0",
+    "postcss": "^8.5.3",
     "vite": "^6.0.3",
     "vitepress": "^1.5.0"
   }

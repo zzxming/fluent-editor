@@ -4,7 +4,7 @@ import { demoPreviewPlugin } from '@vitepress-code-preview/plugin'
 import { defineConfig, loadEnv } from 'vitepress'
 import { sidebar } from './sidebar'
 
-const env = loadEnv(process.env.VITE_BASE_URL, fileURLToPath(new URL('../', import.meta.url)))
+const env = loadEnv(process.env.VITE_BASE_URL!, fileURLToPath(new URL('../', import.meta.url)))
 const currentVersion = packageJson.version
 
 export default defineConfig({
@@ -94,6 +94,18 @@ export default defineConfig({
     config(md) {
       const docRoot = fileURLToPath(new URL('../', import.meta.url))
       md.use(demoPreviewPlugin, { docRoot })
+      md.use((md) => {
+        const originDemoOpen = md.renderer.rules.container_demo_open!
+        const originDemoClose = md.renderer.rules.container_demo_close!
+        md.renderer.rules.container_demo_open = (...args) => {
+          const content = originDemoOpen(...args)
+          return `<div class="vp-raw">${content}`
+        }
+        md.renderer.rules.container_demo_close = (...args) => {
+          const content = originDemoClose(...args)
+          return `${content}</div>`
+        }
+      })
     },
   },
 })
