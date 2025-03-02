@@ -69,7 +69,7 @@ export function generateTableUp(QuillTableUp: Constructor) {
       })
     }
 
-    resolveTexts(options: Partial<Record<string, string>>) {
+    resolveTexts(options: Partial<Record<string, string>> = {}) {
       return Object.assign({
         fullCheckboxText: this.quill.getLangText('fullCheckboxText'),
         customBtnText: this.quill.getLangText('customBtnText'),
@@ -95,7 +95,10 @@ export function generateTableUp(QuillTableUp: Constructor) {
         DeleteTable: this.quill.getLangText('DeleteTable'),
         BackgroundColor: this.quill.getLangText('BackgroundColor'),
         BorderColor: this.quill.getLangText('BorderColor'),
-      }, options)
+      }, Object.entries(options).reduce((pre, [key, value]) => {
+        pre[key] = this.quill.getLangText(value)
+        return pre
+      }, {}))
     }
   }
 }

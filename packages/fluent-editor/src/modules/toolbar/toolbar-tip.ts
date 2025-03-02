@@ -1,6 +1,7 @@
 import type { Constructor } from '../../config/types'
 import type FluentEditor from '../../fluent-editor'
 import { CHANGE_LANGUAGE_EVENT } from '../../config'
+import { isString } from '../../utils/is'
 
 export function generateToolbarTip(QuillToolbarTip: Constructor) {
   return class extends QuillToolbarTip {
@@ -125,11 +126,15 @@ export function generateToolbarTip(QuillToolbarTip: Constructor) {
           },
         },
       }
+      const inputTipTextMap = Object.entries(options.tipTextMap).reduce((pre, [key, value]) => {
+        pre[key] = isString(value) ? this.quill.getLangText(value) : value
+        return pre
+      }, {})
       return {
         ...result,
         tipTextMap: {
           ...textMap,
-          ...options.tipTextMap,
+          ...inputTipTextMap,
         },
       }
     }

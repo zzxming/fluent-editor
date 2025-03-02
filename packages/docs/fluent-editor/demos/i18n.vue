@@ -3,13 +3,11 @@ import { onMounted, ref } from 'vue'
 
 let editor
 const editorRef = ref()
-const lang = ref('zh-CN')
+const lang = ref('en-US')
 
 onMounted(() => {
   // ssr compat, reference: https://vitepress.dev/guide/ssr-compat#importing-in-mounted-hook
-  import('@opentiny/fluent-editor').then((module) => {
-    const FluentEditor = module.default
-
+  import('@opentiny/fluent-editor').then(({ default: FluentEditor, generateToolbarTip }) => {
     editor = new FluentEditor(editorRef.value, {
       theme: 'snow',
       modules: {

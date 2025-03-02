@@ -43,6 +43,7 @@ onMounted(() => {
   ]) => {
     FluentEditor.register({ 'modules/table-up': generateTableUp(TableUp) }, true)
     const { tableUpConfig, tableUpKeyboardControl } = generateTableUpShortKeyMenu(createSelectBox)
+    tableUpConfig.title = '_i18n"table"'
     if (editorRef.value) {
       editor = new FluentEditor(editorRef.value, {
         theme: 'snow',

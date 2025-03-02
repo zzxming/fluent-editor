@@ -37,23 +37,6 @@ export const EN_US = {
   'mouse-wheel': 'Mouse Wheel',
   'save': 'Save',
 
-  'copy-cells': 'Copy',
-  'copy-table': 'Copy Table',
-  'cut-cells': 'Cut',
-  'empty-cells': 'Clear Contents',
-
-  'insert-row-up': 'Insert Rows Above',
-  'insert-row-down': 'Insert Rows Below',
-  'insert-column-left': 'Insert Columns to the Left',
-  'insert-column-right': 'Insert Columns to the Right',
-
-  'merge-cells': 'Merge Cells',
-  'unmerge-cells': 'Split Cells',
-
-  'delete-row': 'Delete Entire Row',
-  'delete-column': 'Delete Entire Column',
-  'delete-table': 'Delete Table',
-
   'default-link-text': 'Link',
   'basicblock': 'Card',
   'linkplaceholder': 'Enter an address and press Enter.',

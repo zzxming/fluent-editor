@@ -37,23 +37,6 @@ export const ZH_CN = {
   'mouse-wheel': '鼠标滚轮',
   'save': '保存',
 
-  'copy-cells': '复制',
-  'copy-table': '复制表格',
-  'cut-cells': '剪切',
-  'empty-cells': '清空内容',
-
-  'insert-row-up': '上插入行',
-  'insert-row-down': '下插入行',
-  'insert-column-left': '左插入列',
-  'insert-column-right': '右插入列',
-
-  'merge-cells': '合并单元格',
-  'unmerge-cells': '拆分单元格',
-
-  'delete-row': '删除当前行',
-  'delete-column': '删除当前列',
-  'delete-table': '删除表格',
-
   'default-link-text': '链接',
   'basicblock': '卡片',
   'linkplaceholder': '请输入链接地址，按回车键确认',
@@ -150,4 +133,5 @@ export const ZH_CN = {
   'DeleteTable': '删除当前表格',
   'BackgroundColor': '设置背景颜色',
   'BorderColor': '设置边框颜色',
+
 }

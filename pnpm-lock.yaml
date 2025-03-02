@@ -51,8 +51,8 @@ importers:
         specifier: ^2.1.4
         version: 2.1.4(quill@2.0.3)
       quill-toolbar-tip:
-        specifier: ^0.0.11
-        version: 0.0.11(quill@2.0.3)
+        specifier: ^0.0.13
+        version: 0.0.13(quill@2.0.3)
       vue:
         specifier: ^3.5.13
         version: 3.5.13(typescript@5.7.2)
@@ -91,8 +91,8 @@ importers:
         specifier: ^0.0.9
         version: 0.0.9(quill@2.0.3)
       quill-shortcut-key:
-        specifier: 0.0.1
-        version: 0.0.1(quill@2.0.3)
+        specifier: ^0.0.3
+        version: 0.0.3(quill@2.0.3)
     devDependencies:
       '@types/jest':
         specifier: ^26.0.23
@@ -3964,8 +3964,8 @@ packages:
   quill-markdown-shortcuts@0.0.10:
     resolution: {integrity: sha512-2FFFqqo65JgDgAGSer7cFQTCeiSjJF4N8lRGXGv/xjppCxSwj42OnNdGPZ/zeeCxdUY/j1LW4AiSvPQaTIkY2A==}
 
-  quill-shortcut-key@0.0.1:
-    resolution: {integrity: sha512-/6EY/pjhrEanRKcF4Jjta9j+IKViNQ53PoOzADQX3/HgKGYAykgCr07T0+a+avsO2gux7yfImDnEAzveue65uA==}
+  quill-shortcut-key@0.0.3:
+    resolution: {integrity: sha512-OWjj2jfhUFmYwmuXgmh1YjkJOqS83TTWyCpKrtaUDwwMLuuLVBw7NVNk+j9bipROj0MpFCRlmEmQ3NTEndJHMA==}
     peerDependencies:
       quill: ^2.0.0
 
@@ -3974,8 +3974,8 @@ packages:
     peerDependencies:
       quill: ^2.0.0
 
-  quill-toolbar-tip@0.0.11:
-    resolution: {integrity: sha512-JbtWnRhnJZRpv0K/fK+02WG0QvrrkecrMRSnun78OmWdbLwDPDBERRZMRIX2kKF3jERfZz5mbNptgkX5eqVSgw==}
+  quill-toolbar-tip@0.0.13:
+    resolution: {integrity: sha512-E2fK1C2xUiBulIRabgYBS861gD1M+NSU6ngijchMgdQlYY2y5Bml2mOaDnGwxRmMu9SVx5gu6DlXDe0Fi3nPwg==}
     peerDependencies:
       quill: ^2.0.0
 
@@ -9360,7 +9360,7 @@ snapshots:
     dependencies:
       quill: 1.3.7
 
-  quill-shortcut-key@0.0.1(quill@2.0.3):
+  quill-shortcut-key@0.0.3(quill@2.0.3):
     dependencies:
       quill: 2.0.3
 
@@ -9369,7 +9369,7 @@ snapshots:
       '@floating-ui/dom': 1.6.13
       quill: 2.0.3
 
-  quill-toolbar-tip@0.0.11(quill@2.0.3):
+  quill-toolbar-tip@0.0.13(quill@2.0.3):
     dependencies:
       '@floating-ui/dom': 1.6.13
       quill: 2.0.3
