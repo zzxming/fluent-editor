@@ -11,9 +11,9 @@ export function inertDepsVersion() {
   } = process.env
   const FluentEditorVersion = packageJson.version
 
-  document.body.setAttribute('data-vite-version', ViteVersion)
-  document.body.setAttribute('data-vitepress-version', VitePressVersion)
-  document.body.setAttribute('data-vue-version', VueVersion)
-  document.body.setAttribute('data-quill-version', QuillVersion)
+  document.body.setAttribute('data-vite-version', ViteVersion || 'dev')
+  document.body.setAttribute('data-vitepress-version', VitePressVersion || 'dev')
+  document.body.setAttribute('data-vue-version', VueVersion || 'dev')
+  document.body.setAttribute('data-quill-version', QuillVersion || 'dev')
   document.body.setAttribute('data-fluent-editor-version', FluentEditorVersion)
 }

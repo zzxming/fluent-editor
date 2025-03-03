@@ -7,7 +7,7 @@ const currentDirectory = path.dirname(__filename)
 const baseUrl = path.dirname(currentDirectory)
 
 test('image-upload', async ({ page }) => {
-  await page.goto('http://localhost:5173/tiny-editor/docs/image-upload')
+  await page.goto('http://localhost:5173/tiny-editor/docs/demo/image-upload')
 
   // upload
   await page.getByLabel('image').first().click()
@@ -20,7 +20,7 @@ test('image-upload', async ({ page }) => {
 
   // zoom
   const moveDistance = 100
-  const imageElement = page.locator('#editor').getByRole('img')
+  const imageElement = page.locator('#editor .ql-editor').getByRole('img')
   const oldBox = await imageElement.boundingBox() as { x: number, y: number, width: number, height: number }
   await page.mouse.move(oldBox.x, oldBox.y)
   await page.mouse.down()
