@@ -90,6 +90,7 @@ OriginSnowTheme.DEFAULTS = {
       },
     },
     'shortcut-key': true,
+    'file': true,
   },
 }
 
