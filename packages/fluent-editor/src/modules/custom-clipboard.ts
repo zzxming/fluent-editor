@@ -237,7 +237,7 @@ class CustomClipboard extends Clipboard {
     })()
   }
 
-  files2urls(files, placeholders, originalUrls, pastedDelta, imageIndexs) {
+  files2urls(files: File[], placeholders, originalUrls, pastedDelta, imageIndexs) {
     return Promise.all(
       files.map(async (imageFile, index) => {
         const netImgExp = /^((http|https)\:)?\/\/([\s\S]+)$/
@@ -251,13 +251,9 @@ class CustomClipboard extends Clipboard {
             resolve(originalUrls[index])
           })
         }
-        else if (this.quill.options.uploadOption.imageUploadToServer) {
+        else {
           const range = this.getImgSelection(pastedDelta, imageIndexs[index])
           this.quill.uploader.upload(range, [imageFile])
-        }
-        else {
-          // 占位图或者跨域图需要手动转换成url格式
-          return imageFileToUrl(imageFile)
         }
       }),
     )
