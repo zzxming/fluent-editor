@@ -29,7 +29,7 @@ onMounted(() => {
             return files.map((_, i) => i % 2 === 0 ? false : 'https://developer.mozilla.org/static/media/chrome.5e791c51c323fbb93c31.svg')
           },
           fail(file: File, range: Range) {
-            this.quill.updateContents(new Delta().retain(range.index).delete(1).insert({ image:  'https://developer.mozilla.org/static/media/edge.741dffaf92fcae238b84.svg'}))
+            this.quill.updateContents(new Delta().retain(range.index).delete(1).insert({ image: 'https://developer.mozilla.org/static/media/edge.741dffaf92fcae238b84.svg' }))
           },
         },
       },

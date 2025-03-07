@@ -8,7 +8,6 @@ import {
 import { BIG_DELTA_LIMIT } from '../config/editor.config'
 import {
   hexToRgbA,
-  imageFileToUrl,
   imageUrlToFile,
   isNullOrUndefined,
   omit,
