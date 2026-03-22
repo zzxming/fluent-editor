@@ -1,9 +1,9 @@
 import type { Parchment as TypeParchment } from 'quill'
 import type FluentEditor from '../../../core/fluent-editor'
 import Quill, { Range } from 'quill'
+import { I18N_LOCALE_CHANGE } from 'quill-i18n'
 import Emitter from 'quill/core/emitter'
 import { BaseTooltip } from 'quill/themes/base'
-import { CHANGE_LANGUAGE_EVENT } from '../../../config'
 import { hadProtocol, isNullOrUndefined } from '../../../config/editor.utils'
 import { EN_US } from '../../../config/i18n/en-us'
 import { debounce } from '../../../utils/debounce'
@@ -35,7 +35,7 @@ export class LinkTooltip extends BaseTooltip {
     LinkBlot.autoProtocol = this.options.autoProtocol
     this.debouncedHideToolTip = debounce(this.hideToolTip, 300)
     this.debouncedShowToolTip = debounce(this.showToolTip, 300)
-    this.quill.emitter.on(CHANGE_LANGUAGE_EVENT, () => {
+    this.quill.on(I18N_LOCALE_CHANGE, () => {
       this.setTemplate()
     })
   }
@@ -47,6 +47,7 @@ export class LinkTooltip extends BaseTooltip {
       '<a class="ql-preview"><i class="icon-share"></i></a>',
       '<a class="ql-remove"><i class="icon-delete"></i></a>',
     ].join('')
+    this.root.setAttribute('data-before-title', this.quill.getLangText(`link.enter-${this.root.dataset.mode}`))
     this.textbox = this.root.querySelector('input[type="text"]')
     this.listen()
   }
@@ -321,6 +322,7 @@ export class LinkTooltip extends BaseTooltip {
       this.textbox.getAttribute(`data-${mode}`) || '',
     )
     this.root.setAttribute('data-mode', mode)
+    this.root.setAttribute('data-before-title', this.quill.getLangText(`link.enter-${this.root.dataset.mode}`))
   }
 
   show() {

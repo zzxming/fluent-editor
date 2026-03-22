@@ -117,7 +117,7 @@ export class ImagePreviewModal {
     })
 
     // 绑定滚轮缩放事件
-    document.addEventListener('wheel', (e) => this.onMouseWheel(e), { passive: false })
+    document.addEventListener('wheel', e => this.onMouseWheel(e), { passive: false })
 
     // 阻止模态框内的点击事件冒泡到遮罩层
     this.modal.addEventListener('click', (e) => {
