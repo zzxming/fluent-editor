@@ -49,7 +49,7 @@ export class LinkTooltip extends BaseTooltip {
     ].join('')
     this.root.setAttribute('data-before-title', this.quill.getLangText(`link.enter-${this.root.dataset.mode}`))
     this.textbox = this.root.querySelector('input[type="text"]')
-    this.listen()
+    this.bindRootEvents()
   }
 
   resolveOptions() {
@@ -114,16 +114,6 @@ export class LinkTooltip extends BaseTooltip {
 
   listen() {
     super.listen()
-    this.root.querySelector('a.ql-remove').addEventListener('click', (event) => {
-      if (!isNullOrUndefined(this.linkRange)) {
-        const range = this.linkRange
-        this.restoreFocus()
-        this.quill.formatText(range, 'link', false, Emitter.sources.API)
-        delete this.linkRange
-      }
-      event.preventDefault()
-      this.hide()
-    })
 
     this.quill.root.addEventListener(
       'mouseover',
@@ -161,20 +151,9 @@ export class LinkTooltip extends BaseTooltip {
       false,
     )
 
+    this.bindRootEvents()
     this.root.addEventListener('mouseleave', this.handleMouseLeave.bind(this), false)
 
-    this.root.querySelector('a.ql-preview').addEventListener('click', (event) => {
-      const link = LinkBlot.sanitize(this.textbox.value)
-      window.open(link, '_blank')
-      event.preventDefault()
-    })
-    this.root.querySelector('input[type="text"]').addEventListener('focus', () => {
-      this.isInputFocus = true
-    })
-    this.root.querySelector('input[type="text"]').addEventListener('blur', () => {
-      this.isInputFocus = false
-      this.save()
-    })
     this.quill.on(
       Emitter.events.SELECTION_CHANGE,
       (range, _oldRange, source) => {
@@ -215,6 +194,35 @@ export class LinkTooltip extends BaseTooltip {
         })
       },
     )
+  }
+
+  bindRootEvents() {
+    const removeClickHandler = (event: Event) => {
+      if (!isNullOrUndefined(this.linkRange)) {
+        const range = this.linkRange
+        this.restoreFocus()
+        this.quill.formatText(range, 'link', false, Emitter.sources.API)
+        delete this.linkRange
+      }
+      event.preventDefault()
+      this.hide()
+    }
+    this.root.querySelector('a.ql-remove').addEventListener('click', removeClickHandler)
+    const previewClickHandler = (event: Event) => {
+      const link = LinkBlot.sanitize(this.textbox.value)
+      window.open(link, '_blank')
+      event.preventDefault()
+    }
+    this.root.querySelector('a.ql-preview').addEventListener('click', previewClickHandler)
+    const inputFocusHandler = () => {
+      this.isInputFocus = true
+    }
+    this.root.querySelector('input[type="text"]').addEventListener('focus', inputFocusHandler)
+    const inputBlurHandler = () => {
+      this.isInputFocus = false
+      this.save()
+    }
+    this.root.querySelector('input[type="text"]').addEventListener('blur', inputBlurHandler)
   }
 
   save() {
