@@ -31,10 +31,10 @@ test.describe('MindMap.vue', () => {
 
   test('should activate mind-map when button is clicked', async ({ page }) => {
     const mindMapButton = page.locator('.ql-toolbar .ql-mind-map').first()
-    const miniMapCount = await page.locator('.ql-mind-map-item').count()
+    const mindMapCount = await page.locator('.ql-mind-map-item').count()
     await expect(mindMapButton).toBeVisible()
     await mindMapButton.click()
     await page.waitForTimeout(500)
-    await expect(await page.locator('.ql-mind-map-item').count()).toBe(miniMapCount + 1)
+    await expect(await page.locator('.ql-mind-map-item').count()).toBe(mindMapCount + 1)
   })
 })
